@@ -30,10 +30,10 @@ body {
   }
   input {
     background-color: rgba(#000, 0.05);
-    height: 2.5rem;
+    height: 7vh;
     width: calc(12rem + 25vw);
     outline: none;
-    padding: 0.5rem 1.2rem;
+    padding: 2vw;
     border: 1px solid rgba(#fff, 0.2);
     border-radius: 0.5rem;
     color: rgba(#fff, .75);
@@ -85,4 +85,3 @@ body {
   opacity: 1;
 }
 
-// @media only screen and (min-width)
