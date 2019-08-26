@@ -1,0 +1,88 @@
+@import "config";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font;
+  font-weight: 600;
+}
+
+body {
+  background: $background;
+}
+
+.container {
+  .grid-row-3 {
+    position: relative;
+    right: -.5rem !important;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    overflow: hidden;
+  }
+  max-width: 80vw;
+  margin: 0 auto;
+  form {
+    align-self: center;
+    margin-top: 8%;
+  }
+  input {
+    background-color: rgba(#000, 0.05);
+    height: 2.5rem;
+    width: calc(12rem + 25vw);
+    outline: none;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid rgba(#fff, 0.2);
+    border-radius: 0.5rem;
+    color: rgba(#fff, .75);
+    font-size: 1.5rem;
+  }
+  .color-container {
+    background-color: rgba(#000, 0.05);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(50px + 4rem), 1fr));
+    grid-template-rows: repeat(auto-fit, calc(50px + 3rem));
+    justify-items: center;
+    align-items: center;
+    grid-column-gap: .5rem;
+    grid-row-gap: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 1rem;
+    margin: 2rem;
+
+    .color {
+      border-radius: .5rem;
+      width: 100%;
+      height: 100px;
+      background: white;
+      margin: 1.2rem;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(#fff, 0.5);
+  border-radius: 1rem;
+  &:hover {
+    background: rgba(#fff, 0.75);
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: $background;
+}
+
+::placeholder { 
+  color: rgba(#fff, .05);
+  opacity: 1;
+}
+
+// @media only screen and (min-width)

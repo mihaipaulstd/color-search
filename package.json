@@ -1,0 +1,19 @@
+{
+  "name": "color-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "\u001b[D\u001b[Cmain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihaipaulstd/color-search.git"
+  },
+  "author": "Grinzeanu Mihai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mihaipaulstd/color-search/issues"
+  },
+  "homepage": "https://github.com/mihaipaulstd/color-search#readme"
+}
