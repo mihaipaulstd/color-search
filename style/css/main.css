@@ -6,10 +6,10 @@
           box-sizing: border-box;
   font-family: "Livvic", sans-serif;
   font-weight: 600;
-}
-
-body {
-  background: #2f2fa2;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 1px 1px 1px #121212;
+  -webkit-transition: opacity 1000ms ease-in-out, background-color 1500ms ease-in-out;
+  transition: opacity 1000ms ease-in-out, background-color 1500ms ease-in-out;
 }
 
 .container {
@@ -17,64 +17,68 @@ body {
   margin: 0 auto;
 }
 
-.container .grid-row-3 {
+.grid-row-3 {
   position: relative;
-  right: -.5rem !important;
+  right: -0.5rem !important;
   height: 100vh;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: auto auto auto;
-      grid-template-rows: auto auto auto;
+  -ms-grid-rows: 1fr 5fr 1fr;
+      grid-template-rows: 1fr 5fr 1fr;
   justify-items: center;
   overflow: hidden;
+  grid-gap: 1rem;
 }
 
-.container form {
+form {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin-top: 8%;
+  margin-top: 10vh;
 }
 
-.container input {
-  background-color: rgba(0, 0, 0, 0.05);
-  height: 7vh;
+input {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 8vh;
   width: calc(12rem + 25vw);
   outline: none;
   padding: 2vw;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.5rem;
-  color: rgba(255, 255, 255, 0.75);
   font-size: 1.5rem;
 }
 
-.container .color-container {
-  background-color: rgba(0, 0, 0, 0.05);
+.color-container {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.1);
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(calc(50px + 4rem), 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(calc(50px + 4rem), 1fr));
-  -ms-grid-rows: (calc(50px + 3rem))[auto-fit];
-      grid-template-rows: repeat(auto-fit, calc(50px + 3rem));
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: calc(200px + 0.1rem);
   justify-items: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-column-gap: .5rem;
-  grid-row-gap: .5rem;
+  grid-column-gap: 0.1rem;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 1rem;
-  margin: 2rem;
 }
 
-.container .color-container .color {
-  border-radius: .5rem;
+.color {
+  opacity: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 9fr 1fr;
+      grid-template-rows: 9fr 1fr;
+  position: relative;
+  border-radius: 0.5rem;
   width: 100%;
-  height: 100px;
-  background: white;
-  margin: 1.2rem;
+  height: 200px;
+  background: orange;
 }
 
 ::-webkit-scrollbar {
@@ -91,26 +95,30 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #2f2fa2;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 ::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.1);
+  text-shadow: none;
   opacity: 1;
 }
 
 :-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.1);
+  text-shadow: none;
   opacity: 1;
 }
 
 ::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.1);
+  text-shadow: none;
   opacity: 1;
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.1);
+  text-shadow: none;
   opacity: 1;
 }
 /*# sourceMappingURL=main.css.map */

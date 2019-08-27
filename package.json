@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/mihaipaulstd/color-search/issues"
   },
-  "homepage": "https://github.com/mihaipaulstd/color-search#readme"
+  "homepage": "https://github.com/mihaipaulstd/color-search#readme",
+  "dependencies": {}
 }
