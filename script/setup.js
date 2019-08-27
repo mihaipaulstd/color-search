@@ -6,7 +6,6 @@ async function setup() {
   generateAppearingArray();
   fadeInColors();
   fadeInColorsListener();
-  setScrollTrackColor(global.currentBackgroundColor.hex);
 }
 
 
@@ -79,5 +78,3 @@ function setBackground() {
 
   console.log(global.currentBackgroundColor.name);
 }
-
-
