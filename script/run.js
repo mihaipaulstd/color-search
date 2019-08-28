@@ -4,7 +4,7 @@ function run() {
     global.currentValue = e.target.value;
     setArray();
     generateAppearingControl(global.currentArray);
-    initialFadeInColors();
+    fadeInColors();
     fadeInColorsListener();
   });
 }

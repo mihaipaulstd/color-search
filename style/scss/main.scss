@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: $font;
+  letter-spacing: 3px;
   font-weight: 600;
   color: rgba(#fff, 0.75);
   text-shadow: 1px 1px 1px #121212;
@@ -14,16 +15,16 @@
 
 
 .container {
-  max-width: 80vw;
+  height: 100vh;
+  max-width: 100vw;
   margin: 0 auto;
 }
 
 .grid-row-3 {
   position: relative;
-  right: -0.5rem !important;
   height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 20fr 1fr;
   justify-items: center;
   overflow: hidden;
   grid-gap: 1rem;
@@ -40,10 +41,10 @@ input {
   height: 8vh;
   width: calc(12rem + 25vw);
   outline: none;
-  padding: 2vw;
+  padding: 3vw;
   border: 1px solid rgba(#fff, 0.2);
   border-radius: 0.5rem;
-  font-size: 1.5rem;
+  font-size: calc(1.25vw + 0.75rem);
 }
 
 .color-container {
@@ -51,26 +52,38 @@ input {
   background-color: rgba(#000, 0.1);
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-auto-rows: calc(200px + 0.1rem);
+  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+  grid-auto-rows: calc(125px + .1rem);
 
   justify-items: center;
   align-items: center;
   grid-column-gap: 0.1rem;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 1rem;
+  padding: 1rem 3.5rem;
 }
 
 .color {
+  box-shadow: $box-shadow;
   opacity: 0;
   display: grid;
   position: relative;
-  border-radius: 0.5rem;
+  border-radius: .5rem;
   width: 100%;
-  height: 200px;
+  height: 125px;
+  transition: transform 250ms ease-out,
+  box-shadow 500ms ease-out;
+  
+  &:active{
+    transform: translate(5px, 5px);
+    box-shadow: $box-shadow-hover;
+   
+  }
+  &:hover {
+    cursor: pointer;
+  }
+ 
 }
-
 
 ::-webkit-scrollbar {
   width: 0.5rem;
@@ -93,4 +106,16 @@ input {
   color: rgba(#fff, 0.1);
   text-shadow: none;
   opacity: 1;
+}
+
+.selected {
+  transition: opacity 200ms ease-out;
+  opacity: 1 !important;
+  transform: scale(0.99);
+}
+
+.current{
+  position: absolute;
+  top: 1vh;
+  right: 1vw;
 }

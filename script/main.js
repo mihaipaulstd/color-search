@@ -3,13 +3,16 @@ const OPACITY_TRANSITION_INCREMENT = 500;
 global = {
   body: document.querySelector("body"),
   input: document.getElementById("search"),
+  form: document.getElementById("form"),
+  colorContainer: document.getElementsByClassName('color-container')[0],
   currentValue: new String(),
-  colorContainer: document.querySelector('.color-container'),
   currentBackgroundColor: new String(),
   currentArray: this.fetchedColors,
   hasAppeared: new Array(),
-  colors: Array.from(document.getElementsByClassName("color")),
   fetchedColors: new Array(),
+  noPerRow: 0,
+  rowHeight: 0,
+  ids: new Array()
 };
 
 window.addEventListener("load", init);

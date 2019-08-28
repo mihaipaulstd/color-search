@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Livvic:200,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower&display=swap");
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "Livvic", sans-serif;
+  font-family: "Indie Flower", cursive;
+  letter-spacing: 3px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.75);
   text-shadow: 1px 1px 1px #121212;
@@ -13,18 +14,18 @@
 }
 
 .container {
-  max-width: 80vw;
+  height: 100vh;
+  max-width: 100vw;
   margin: 0 auto;
 }
 
 .grid-row-3 {
   position: relative;
-  right: -0.5rem !important;
   height: 100vh;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 5fr 1fr;
-      grid-template-rows: 1fr 5fr 1fr;
+  -ms-grid-rows: 1fr 20fr 1fr;
+      grid-template-rows: 1fr 20fr 1fr;
   justify-items: center;
   overflow: hidden;
   grid-gap: 1rem;
@@ -43,10 +44,10 @@ input {
   height: 8vh;
   width: calc(12rem + 25vw);
   outline: none;
-  padding: 2vw;
+  padding: 3vw;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.5rem;
-  font-size: 1.5rem;
+  font-size: calc(1.25vw + 0.75rem);
 }
 
 .color-container {
@@ -55,9 +56,9 @@ input {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-auto-rows: calc(200px + 0.1rem);
+  -ms-grid-columns: (minmax(125px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+  grid-auto-rows: calc(125px + .1rem);
   justify-items: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -65,17 +66,34 @@ input {
   grid-column-gap: 0.1rem;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 1rem;
+  padding: 1rem 3.5rem;
 }
 
 .color {
+  -webkit-box-shadow: 1px 1px 3px #000, 2px 2px 1px #525252, 3px 3px 1px #525252, 4px 4px 1px #525252, 5px 5px 1px #525252, 5px 5px 1px #525252, 6px 6px 1px #525252, 7px 7px 1px #525252, 8px 8px 1px #525252, 9px 9px 1px #525252, 10px 10px 1px #525252;
+          box-shadow: 1px 1px 3px #000, 2px 2px 1px #525252, 3px 3px 1px #525252, 4px 4px 1px #525252, 5px 5px 1px #525252, 5px 5px 1px #525252, 6px 6px 1px #525252, 7px 7px 1px #525252, 8px 8px 1px #525252, 9px 9px 1px #525252, 10px 10px 1px #525252;
   opacity: 0;
   display: -ms-grid;
   display: grid;
   position: relative;
-  border-radius: 0.5rem;
+  border-radius: .5rem;
   width: 100%;
-  height: 200px;
+  height: 125px;
+  -webkit-transition: -webkit-transform 250ms ease-out, -webkit-box-shadow 500ms ease-out;
+  transition: -webkit-transform 250ms ease-out, -webkit-box-shadow 500ms ease-out;
+  transition: transform 250ms ease-out, box-shadow 500ms ease-out;
+  transition: transform 250ms ease-out, box-shadow 500ms ease-out, -webkit-transform 250ms ease-out, -webkit-box-shadow 500ms ease-out;
+}
+
+.color:active {
+  -webkit-transform: translate(5px, 5px);
+          transform: translate(5px, 5px);
+  -webkit-box-shadow: 1px 1px 1px #525252, 2px 2px 1px #525252, 3px 3px 1px #525252, 4px 4px 1px #525252, 5px 5px 1px #525252, 5px 5px 1px #525252;
+          box-shadow: 1px 1px 1px #525252, 2px 2px 1px #525252, 3px 3px 1px #525252, 4px 4px 1px #525252, 5px 5px 1px #525252, 5px 5px 1px #525252;
+}
+
+.color:hover {
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -117,5 +135,19 @@ input {
   color: rgba(255, 255, 255, 0.1);
   text-shadow: none;
   opacity: 1;
+}
+
+.selected {
+  -webkit-transition: opacity 200ms ease-out;
+  transition: opacity 200ms ease-out;
+  opacity: 1 !important;
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+}
+
+.current {
+  position: absolute;
+  top: 1vh;
+  right: 1vw;
 }
 /*# sourceMappingURL=main.css.map */

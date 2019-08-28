@@ -1,47 +1,78 @@
 async function setup() {
-  window.addEventListener("click", () => global.input.focus());
   generateAppearingControl(global.fetchedColors);
+  getNoPerRow();
+  noPerRowListener();
+
   setBackground();
   fadeIn(global.input, OPACITY_TRANSITION_INCREMENT * 2);
   fadeIn(global.colorContainer, OPACITY_TRANSITION_INCREMENT * 3);
-  initialFadeInColors();
+  fadeInColors();
+
   fadeInColorsListener();
+  window.addEventListener("click", () => global.input.focus());
 }
 
-function initialFadeInColors() {
-  global.colorContainer.innerHTML = "";
-  for (let index = 0; index < global.hasAppeared.length; index++) {
-    addColor(global.hasAppeared[index][0]);
+function setRowHeight() {
+  console.log(document.getElementsByClassName(".color"));
+}
 
+function fadeInColors() {
+  global.colorContainer.innerHTML = "";
+  check("notlistener");
+}
+
+function fadeInColorsListener() {
+  global.colorContainer.addEventListener("scroll", e => {
+    check("listener");
+  });
+}
+function check(key) {
+  for (let index = 0; index < global.hasAppeared.length; index++) {
+    switch (key) {
+      case "listener":
+        if (global.hasAppeared[index][1] == true) continue;
+        break;
+      default:
+        break;
+    }
+
+    addColor(global.hasAppeared[index][0], true);
     if (
       global.colorContainer.children[index].getBoundingClientRect().top <=
-      global.colorContainer.getBoundingClientRect().height * 1.2
+      global.colorContainer.getBoundingClientRect().height * 1.5
     ) {
-      global.colorContainer.children[index].style.opacity = 1;
       global.hasAppeared[index][1] = true;
     } else {
+      global.hasAppeared[index][1] = false;
       removeLastColor();
       break;
     }
   }
 }
 
-function fadeInColorsListener() {
-  global.colorContainer.addEventListener("scroll", e => {
-    for (let index = 0; index < global.hasAppeared.length; index++) {
-      if (global.hasAppeared[index][1] == true) continue;
+function getNoPerRow() {
+  global.noPerRow = 0;
+  let max = 200;
+  for (let index = 0; index < global.hasAppeared.length; index++) {
+    addColor(global.hasAppeared[index][0], false);
+    if (
+      global.colorContainer.children[index].getBoundingClientRect().top < max
+    ) {
+      global.noPerRow++;
+      global.hasAppeared[index][1] = true;
+    } else {
+      generateAppearingControl(global.fetchedColors);
+      global.colorContainer.innerHTML = "";
+      fadeInColors();
 
-      if (
-        global.colorContainer.children[index - 1].getBoundingClientRect().top <=
-        global.colorContainer.getBoundingClientRect().height * 1.2
-      ) {
-        addColor(global.hasAppeared[index][0]);
-        global.colorContainer.children[index].style.opacity = 1;
-        global.hasAppeared[index][1] = true;
-      } else {
-        break;
-      }
+      break;
     }
+  }
+}
+
+function noPerRowListener() {
+  window.addEventListener("resize", e => {
+    getNoPerRow();
   });
 }
 
@@ -57,14 +88,26 @@ function generateAppearingControl(array) {
   global.hasAppeared = array.map(color => [color, false]);
 }
 
-function addColor(color) {
-  global.colorContainer.innerHTML += `
-    <div class="color" id="${color.hex.slice(1)}"></div>
-  `;
-  document.getElementById(`${color.hex.slice(1)}`).style.backgroundColor =
-    color.hex;
-}
+function addColor(color, listen) {
+  if (listen) {
+    let div = document.createElement("div");
+    div.classList.add("color");
+    let id = color.hex.slice(1);
+    div.id = id;
+    document.getElementsByClassName("color-container")[0].appendChild(div);
+    document.getElementById(id).style.backgroundColor = color.hex;
+    document.getElementById(id).style.opacity = 1;
+    document.getElementById(id).onclick =  () => {
+      console.log("hey");
+    }
 
+    return id;
+  } else {
+    let div = document.createElement("div");
+    div.classList.add("color");
+    document.getElementsByClassName("color-container")[0].appendChild(div);
+  }
+}
 function fadeIn(element, delay = 0) {
   setTimeout(() => {
     element.style.opacity = 1;
@@ -77,6 +120,4 @@ function setBackground() {
       Math.floor(Math.random() * global.fetchedColors.length)
     ];
   global.body.style.backgroundColor = global.currentBackgroundColor.hex;
-
-  console.log(global.currentBackgroundColor.name);
 }
