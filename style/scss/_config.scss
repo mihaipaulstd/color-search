@@ -1,13 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower&display=swap");
 
 $font: "Indie Flower", cursive;
-$box-shadow-color: #525252;
-$box-shadow: 1px 1px 3px #000, 2px 2px 1px $box-shadow-color,
-  3px 3px 1px $box-shadow-color, 4px 4px 1px $box-shadow-color,
-  5px 5px 1px $box-shadow-color, 5px 5px 1px $box-shadow-color,
-  6px 6px 1px $box-shadow-color, 7px 7px 1px $box-shadow-color,
-  8px 8px 1px $box-shadow-color, 9px 9px 1px $box-shadow-color,
-  10px 10px 1px $box-shadow-color;
-$box-shadow-hover: 1px 1px 1px $box-shadow-color, 2px 2px 1px $box-shadow-color,
-  3px 3px 1px $box-shadow-color, 4px 4px 1px $box-shadow-color,
-  5px 5px 1px $box-shadow-color, 5px 5px 1px $box-shadow-color;
+$box-shadow-color: #424242;
+$box-shadow: 1px 1px 0 $box-shadow-color, 2px 2px 0 $box-shadow-color,
+  3px 3px 0 $box-shadow-color, 4px 4px 0 $box-shadow-color,
+  5px 5px 0 $box-shadow-color, 6px 6px 0 $box-shadow-color,7px 7px 0 $box-shadow-color,8px 8px 0 $box-shadow-color,8px 8px 2px $box-shadow-color;
+
+$box-shadow-hover: 1px 1px 0 $box-shadow-color, 2px 2px 0 $box-shadow-color,
+3px 3px 0 $box-shadow-color, 4px 4px 0 $box-shadow-color,
+5px 5px 0 $box-shadow-color,6px 6px 0 $box-shadow-color,7px 7px 0 $box-shadow-color,8px 8px 0 $box-shadow-color;

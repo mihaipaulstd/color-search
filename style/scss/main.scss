@@ -12,8 +12,6 @@
   transition: opacity 1000ms ease-in-out, background-color 1500ms ease-in-out;
 }
 
-
-
 .container {
   height: 100vh;
   max-width: 100vw;
@@ -24,7 +22,7 @@
   position: relative;
   height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 20fr 1fr;
+  grid-template-rows: 1fr 9fr;
   justify-items: center;
   overflow: hidden;
   grid-gap: 1rem;
@@ -52,15 +50,15 @@ input {
   background-color: rgba(#000, 0.1);
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-  grid-auto-rows: calc(125px + .1rem);
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  grid-auto-rows: calc(9rem + 0.1rem);
 
   justify-items: center;
   align-items: center;
   grid-column-gap: 0.1rem;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 1rem 3.5rem;
+  padding: 1rem 2rem;
 }
 
 .color {
@@ -68,21 +66,19 @@ input {
   opacity: 0;
   display: grid;
   position: relative;
-  border-radius: .5rem;
+  border-radius: 0.35rem;
   width: 100%;
-  height: 125px;
-  transition: transform 250ms ease-out,
-  box-shadow 500ms ease-out;
-  
-  &:active{
-    transform: translate(5px, 5px);
-    box-shadow: $box-shadow-hover;
-   
-  }
+  height: 9rem;
+  transition: transform 200ms linear, box-shadow 200ms linear 25ms;
   &:hover {
+    transform: translate(1px, 1px);
+    box-shadow: $box-shadow-hover;
     cursor: pointer;
   }
- 
+  &:active {
+    transform: translate(8px, 8px);
+    box-shadow: none;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -98,8 +94,7 @@ input {
 }
 
 ::-webkit-scrollbar-track {
-
-  background: rgba(#000, 0.1);;
+  background: rgba(#000, 0.1);
 }
 
 ::placeholder {
@@ -114,7 +109,7 @@ input {
   transform: scale(0.99);
 }
 
-.current{
+.current {
   position: absolute;
   top: 1vh;
   right: 1vw;
