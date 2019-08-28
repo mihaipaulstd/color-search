@@ -44,6 +44,12 @@ function check(key) {
       global.colorContainer.getBoundingClientRect().height * 1.5
     ) {
       global.hasAppeared[index][1] = true;
+      if (global.currentSelected != null)
+        if (
+          global.colorContainer.children[index].id == global.currentSelected.id
+        ) {
+          global.colorContainer.children[index].classList.add("selected");
+        }
     } else {
       global.hasAppeared[index][1] = false;
       removeLastColor();
