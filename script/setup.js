@@ -39,7 +39,7 @@ function check(key) {
     global.ids.push(addColor(global.hasAppeared[index][0], true));
     if (
       global.colorContainer.children[index].getBoundingClientRect().top <=
-      global.colorContainer.getBoundingClientRect().height * 1.5
+      global.colorContainer.getBoundingClientRect().height * 1.35
     ) {
       global.hasAppeared[index][1] = true;
       if (global.currentSelected != null)
@@ -57,28 +57,11 @@ function check(key) {
   buttonEventInit();
 }
 
-function getNoPerRow() {
-  global.noPerRow = 0;
-  let max = 200;
-  for (let index = 0; index < global.hasAppeared.length; index++) {
-    addColor(global.hasAppeared[index][0], false);
-    if (
-      global.colorContainer.children[index].getBoundingClientRect().top < max
-    ) {
-      global.noPerRow++;
-      global.hasAppeared[index][1] = true;
-    } else {
-      generateAppearingControl(global.fetchedColors);
-      global.colorContainer.innerHTML = "";
-      fadeInColors();
-      break;
-    }
-  }
-}
 
 function noPerRowListener() {
   window.addEventListener("resize", e => {
-    getNoPerRow();
+    generateAppearingControl(global.fetchedColors);
+    fadeInColors();
   });
 }
 

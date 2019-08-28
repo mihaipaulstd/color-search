@@ -13,6 +13,7 @@ function buttonEventInit() {
 }
 
 function clickCallback(e) {
+  global.body.style.backgroundColor = `#${e.target.id}`;
   if (!hasSelected()) {
     global.lastSelected = e.target;
     global.currentSelected = global.lastSelected;
