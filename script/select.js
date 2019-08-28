@@ -16,6 +16,7 @@ function clickCallback(e) {
   if (!hasSelected()) {
     global.lastSelected = e.target;
     global.currentSelected = global.lastSelected;
+    e.target.classList.remove("hovered");
     global.currentSelected.classList.add("selected");
   } else {
     global.lastSelected = global.currentSelected;
