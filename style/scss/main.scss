@@ -65,12 +65,11 @@ input {
   opacity: 0;
   display: grid;
   position: relative;
-  border: solid 1px rgba(0, 0, 0, .2);
+  border: solid 1px rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
   width: 100%;
   height: 9rem;
   transition: transform 200ms ease-out, box-shadow 200ms ease-out 20ms;
-  
 }
 
 ::-webkit-scrollbar {
@@ -97,13 +96,13 @@ input {
 
 .selected {
   transform: translate(8px, 8px);
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .hovered {
   transform: translate(1px, 1px);
-    box-shadow: $box-shadow-hover;
-    cursor: pointer;
+  box-shadow: $box-shadow-hover;
+  cursor: pointer;
 }
 
 .current {

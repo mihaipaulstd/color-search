@@ -15,7 +15,7 @@ global = {
   ids: new Array(),
   lastSelected: null,
   currentSelected: null,
-  lastHovered: null,
+  hasHovered: false,
   currentHovered: null
 };
 

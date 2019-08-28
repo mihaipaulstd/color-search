@@ -19,6 +19,10 @@ function clickCallback(e) {
     e.target.classList.remove("hovered");
     global.currentSelected.classList.add("selected");
   } else {
+    global.ids.forEach(id => {
+      if (document.getElementById(id) != null)
+        document.getElementById(id).classList.remove("selected");
+    });
     global.lastSelected = global.currentSelected;
     global.currentSelected = e.target;
     global.lastSelected.classList.remove("selected");
@@ -38,12 +42,11 @@ function clickCallback(e) {
 
 function mouseoverCallback(e) {
   if (!e.target.classList.contains("selected")) {
-    global.lastHovered = global.currentHovered;
-    global.currentHovered = e.target;
     e.target.classList.add("hovered");
+    global.currentHovered = e.target;
   }
 }
 
 function mouseleaveCallback(e) {
-  global.lastHovered.classList.remove("hovered");
+  global.currentHovered.classList.remove("hovered");
 }
