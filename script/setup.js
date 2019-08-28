@@ -9,7 +9,9 @@ async function setup() {
   fadeInColors();
 
   fadeInColorsListener();
-  window.addEventListener("click", () => global.input.focus());
+  window.addEventListener("click", e => {
+    global.input.focus();
+  });
 }
 
 function setRowHeight() {
@@ -36,7 +38,7 @@ function check(key) {
         break;
     }
 
-    addColor(global.hasAppeared[index][0], true);
+    global.ids.push(addColor(global.hasAppeared[index][0], true));
     if (
       global.colorContainer.children[index].getBoundingClientRect().top <=
       global.colorContainer.getBoundingClientRect().height * 1.5
@@ -48,6 +50,7 @@ function check(key) {
       break;
     }
   }
+  buttonEventInit();
 }
 
 function getNoPerRow() {
@@ -64,7 +67,6 @@ function getNoPerRow() {
       generateAppearingControl(global.fetchedColors);
       global.colorContainer.innerHTML = "";
       fadeInColors();
-
       break;
     }
   }
@@ -72,7 +74,7 @@ function getNoPerRow() {
 
 function noPerRowListener() {
   window.addEventListener("resize", e => {
-    getNoPerRow();
+    getNoPerRow;
   });
 }
 
@@ -97,9 +99,6 @@ function addColor(color, listen) {
     document.getElementsByClassName("color-container")[0].appendChild(div);
     document.getElementById(id).style.backgroundColor = color.hex;
     document.getElementById(id).style.opacity = 1;
-    document.getElementById(id).onclick =  () => {
-      console.log("hey");
-    }
 
     return id;
   } else {

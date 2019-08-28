@@ -12,10 +12,14 @@ global = {
   fetchedColors: new Array(),
   noPerRow: 0,
   rowHeight: 0,
-  ids: new Array()
+  ids: new Array(),
+  lastSelected: null,
+  currentSelected: null,
+  lastHovered: null,
+  currentHovered: null
 };
 
-window.addEventListener("load", init);
+window.onload = init;
 
 function init() {
   fetchColors()

@@ -1,3 +1,3 @@
-global.form.addEventListener("submit", e => {
+global.form.addEventListener('submit', e => {
   e.preventDefault();
-});
+}); 
