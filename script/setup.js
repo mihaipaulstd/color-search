@@ -1,8 +1,6 @@
 async function setup() {
-  generateAppearingControl(global.fetchedColors);
-  getNoPerRow();
   noPerRowListener();
-
+  generateAppearingControl(global.fetchedColors);
   setBackground();
   fadeIn(global.input, OPACITY_TRANSITION_INCREMENT * 2);
   fadeIn(global.colorContainer, OPACITY_TRANSITION_INCREMENT * 3);
@@ -80,7 +78,7 @@ function getNoPerRow() {
 
 function noPerRowListener() {
   window.addEventListener("resize", e => {
-    getNoPerRow;
+    getNoPerRow();
   });
 }
 
