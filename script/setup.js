@@ -29,6 +29,7 @@ function fadeInColors() {
 
 function fadeInColorsListener() {
   global.colorContainer.addEventListener("scroll", e => {
+    e.preventDefault();
     check("listener");
   });
 }
