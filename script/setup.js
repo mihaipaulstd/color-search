@@ -1,6 +1,6 @@
 async function setup() {
   generateAppearingControl(global.fetchedColors);
-  setColorHeight(undefined, 150);
+  setColorHeight(undefined, 125);
   containerListener();
   resizeListener();
   toggleListener();
@@ -8,7 +8,7 @@ async function setup() {
   fadeIn(global.input, OPACITY_TRANSITION_INCREMENT * 2);
   fadeIn(global.colorContainer, OPACITY_TRANSITION_INCREMENT * 3);
   fadeIn(global.toggleContainer, OPACITY_TRANSITION_INCREMENT * 3);
-  fadeIn(global.toggleButton, OPACITY_TRANSITION_INCREMENT * 5);
+  fadeIn(global.toggleButton, OPACITY_TRANSITION_INCREMENT * 5)
   fadeInColors();
 
   fadeInColorsListener();
@@ -53,11 +53,7 @@ function check(key) {
 
     if (
       global.colorContainer.children[index].getBoundingClientRect().top <=
-      (key == "listener"
-        ? window.innerHeight * 1.01
-        : global.toggled
-        ? window.innerHeight * 1.7
-        : window.innerHeight)
+      (key == "listener" ? window.innerHeight * 1.7 : (window.innerHeight * 1.7))
     ) {
       global.hasAppeared[index][1] = true;
       if (global.currentSelected != null)
@@ -67,6 +63,9 @@ function check(key) {
           global.colorContainer.children[index].classList.add("selected");
         }
     } else {
+      
+      
+      
       global.hasAppeared[index][1] = false;
       removeLastColor();
       break;
