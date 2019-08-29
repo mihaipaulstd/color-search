@@ -1,5 +1,6 @@
 function run() {
   window.addEventListener("change", e => e.preventDefault());
+  global.input.addEventListener("blur", e => e.preventDefault());
   global.input.addEventListener("input", e => {
     e.preventDefault();
     global.colorContainer.innerHTML = "";
