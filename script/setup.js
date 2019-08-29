@@ -11,10 +11,6 @@ async function setup() {
   fadeIn(global.toggleButton, OPACITY_TRANSITION_INCREMENT * 5)
   fadeInColors();
 
-  fadeInColorsListener();
-  window.addEventListener("click", e => {
-    global.input.focus();
-  });
 }
 
 function setColorHeight(element = undefined, height) {
