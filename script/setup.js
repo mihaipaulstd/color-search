@@ -1,9 +1,14 @@
 async function setup() {
-  noPerRowListener();
   generateAppearingControl(global.fetchedColors);
+  setColorHeight(undefined, 150);
+  containerListener();
+  resizeListener();
+  toggleListener();
   setBackground();
   fadeIn(global.input, OPACITY_TRANSITION_INCREMENT * 2);
   fadeIn(global.colorContainer, OPACITY_TRANSITION_INCREMENT * 3);
+  fadeIn(global.toggleContainer, OPACITY_TRANSITION_INCREMENT * 3);
+  fadeIn(global.toggleButton, OPACITY_TRANSITION_INCREMENT * 5);
   fadeInColors();
 
   fadeInColorsListener();
@@ -12,10 +17,16 @@ async function setup() {
   });
 }
 
-function setRowHeight() {
-  console.log(document.getElementsByClassName(".color"));
-}
+function setColorHeight(element = undefined, height) {
+  if (!element) {
+    global.colorSize = height;
+  } else {
+    global.colorContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${height}px, 1fr))`;
+    global.colorContainer.style.gridAutoRows = `${height}px`;
 
+    element.style.height = `${height}px`;
+  }
+}
 function fadeInColors() {
   global.colorContainer.innerHTML = "";
   check("notlistener");
@@ -36,10 +47,17 @@ function check(key) {
         break;
     }
 
-    global.ids.push(addColor(global.hasAppeared[index][0], true));
+    global.ids.push(
+      addColor(global.hasAppeared[index][0], true, global.colorSize)
+    );
+
     if (
       global.colorContainer.children[index].getBoundingClientRect().top <=
-      global.colorContainer.getBoundingClientRect().height * 1.35
+      (key == "listener"
+        ? window.innerHeight * 1.01
+        : global.toggled
+        ? window.innerHeight * 1.7
+        : window.innerHeight)
     ) {
       global.hasAppeared[index][1] = true;
       if (global.currentSelected != null)
@@ -57,8 +75,9 @@ function check(key) {
   buttonEventInit();
 }
 
+function containerListener() {}
 
-function noPerRowListener() {
+function resizeListener() {
   window.addEventListener("resize", e => {
     generateAppearingControl(global.fetchedColors);
     fadeInColors();
@@ -77,7 +96,7 @@ function generateAppearingControl(array) {
   global.hasAppeared = array.map(color => [color, false]);
 }
 
-function addColor(color, listen) {
+function addColor(color, listen, size) {
   if (listen) {
     let div = document.createElement("div");
     div.classList.add("color");
@@ -86,7 +105,7 @@ function addColor(color, listen) {
     document.getElementsByClassName("color-container")[0].appendChild(div);
     document.getElementById(id).style.backgroundColor = color.hex;
     document.getElementById(id).style.opacity = 1;
-
+    setColorHeight(document.getElementById(id), size);
     return id;
   } else {
     let div = document.createElement("div");

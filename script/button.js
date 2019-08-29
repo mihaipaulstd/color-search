@@ -1,7 +1,7 @@
 function buttonEventInit() {
   global.ids.forEach(id => {
     if (document.getElementById(id) != null) {
-      document.getElementById(id).addEventListener("click", clickCallback);
+      document.getElementById(id).addEventListener("mousedown", clickCallback);
       document
         .getElementById(id)
         .addEventListener("mouseover", mouseoverCallback);
@@ -13,6 +13,7 @@ function buttonEventInit() {
 }
 
 function clickCallback(e) {
+  global.body.style.transition = "background-color 1500ms ease-in-out 200ms";
   global.body.style.backgroundColor = `#${e.target.id}`;
   if (!hasSelected()) {
     global.lastSelected = e.target;
@@ -21,8 +22,9 @@ function clickCallback(e) {
     global.currentSelected.classList.add("selected");
   } else {
     global.ids.forEach(id => {
-      if (document.getElementById(id) != null)
+      if (document.getElementById(id) != null) {
         document.getElementById(id).classList.remove("selected");
+      }
     });
     global.lastSelected = global.currentSelected;
     global.currentSelected = e.target;
@@ -43,6 +45,11 @@ function clickCallback(e) {
 
 function mouseoverCallback(e) {
   if (!e.target.classList.contains("selected")) {
+    global.ids.forEach(id => {
+      if (document.getElementById(id) != null) {
+        document.getElementById(id).classList.remove("hovered");
+      }
+    });
     e.target.classList.add("hovered");
     global.currentHovered = e.target;
   }
