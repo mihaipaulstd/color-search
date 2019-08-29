@@ -84,6 +84,7 @@ input {
 }
 
 .color {
+  transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out 25ms;
   box-shadow: $box-shadow;
   opacity: 0;
   display: grid;
