@@ -1,7 +1,6 @@
 async function setup() {
   generateAppearingControl(global.fetchedColors);
-  setColorHeight(undefined, 125);
-  containerListener();
+  setColorHeight(undefined, (window.innerWidth <= 768) ? 100 : 200);
   resizeListener();
   toggleListener();
   setBackground();
@@ -10,7 +9,7 @@ async function setup() {
   fadeIn(global.toggleContainer, OPACITY_TRANSITION_INCREMENT * 3);
   fadeIn(global.toggleButton, OPACITY_TRANSITION_INCREMENT * 5)
   fadeInColors();
-
+  fadeInColorsListener();
 }
 
 function setColorHeight(element = undefined, height) {
@@ -49,7 +48,7 @@ function check(key) {
 
     if (
       global.colorContainer.children[index].getBoundingClientRect().top <=
-      (key == "listener" ? window.innerHeight * 1.7 : (window.innerHeight * 1.7))
+      (key == "listener" ? window.innerHeight * 1.01 : (global.toggled ? window.innerHeight * 1.7 : window.innerHeight))
     ) {
       global.hasAppeared[index][1] = true;
       if (global.currentSelected != null)
@@ -70,10 +69,11 @@ function check(key) {
   buttonEventInit();
 }
 
-function containerListener() {}
+
 
 function resizeListener() {
   window.addEventListener("resize", e => {
+    
     generateAppearingControl(global.fetchedColors);
     fadeInColors();
   });

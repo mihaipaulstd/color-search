@@ -30,7 +30,7 @@ function toggleListener() {
     if (!global.hovered) e.target.classList.add("toggle-hovered-f");
     else e.target.classList.add("toggle-hovered-b");
   }
-
+  
   function mouseleaveCallback(e) {
     if (!global.hovered) e.target.classList.remove("toggle-hovered-f");
     else e.target.classList.remove("toggle-hovered-b");
