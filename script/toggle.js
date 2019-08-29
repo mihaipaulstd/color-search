@@ -1,7 +1,9 @@
 function toggleListener() {
-  global.toggleButton.addEventListener("click", toggleCallback);
+  global.toggleButton.addEventListener("click", clickCallback);
+  global.toggleButton.addEventListener("mouseover", mouseoverCallback);
+  global.toggleButton.addEventListener("mouseleave", mouseleaveCallback);
 
-  function toggleCallback(e) {
+  function clickCallback(e) {
     if (!global.toggleInProgress)
       if (!global.toggled) {
         global.toggleInProgress = true;
@@ -22,5 +24,15 @@ function toggleListener() {
           global.toggleInProgress = false;
         }, 500);
       }
+  }
+
+  function mouseoverCallback(e) {
+    if (!global.hovered) e.target.classList.add("toggle-hovered-f");
+    else e.target.classList.add("toggle-hovered-b");
+  }
+
+  function mouseleaveCallback(e) {
+    if (!global.hovered) e.target.classList.remove("toggle-hovered-f");
+    else e.target.classList.remove("toggle-hovered-b");
   }
 }
