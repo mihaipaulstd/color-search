@@ -48,7 +48,7 @@ function check(key) {
 
     if (
       global.colorContainer.children[index].getBoundingClientRect().top <=
-      (key == "listener" ? window.innerHeight * 1.01 : (global.toggled ? window.innerHeight * 1.7 : window.innerHeight))
+      (key == "listener" ? window.innerHeight * 1.5 : (global.toggled ? window.innerHeight * 1.7 : window.innerHeight))
     ) {
       global.hasAppeared[index][1] = true;
       if (global.currentSelected != null)

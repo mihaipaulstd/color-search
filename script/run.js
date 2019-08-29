@@ -1,11 +1,16 @@
 function run() {
+  window.addEventListener("change", e => e.preventDefault());
   global.input.addEventListener("input", e => {
+    e.preventDefault();
     global.colorContainer.innerHTML = "";
     global.currentValue = e.target.value;
     setArray();
     generateAppearingControl(global.currentArray);
     fadeInColors();
     fadeInColorsListener();
+  });
+  window.addEventListener("touch", e => {
+    e.preventDefault();
   });
 }
 
