@@ -1,5 +1,5 @@
 function run() {
-  global.input.addEventListener("keyup", e => {
+  global.input.addEventListener("input", e => {
     e.preventDefault();
     global.colorContainer.innerHTML = "";
     global.currentValue = e.target.value;
