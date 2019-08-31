@@ -1,6 +1,6 @@
 function setup() {
   generateReferenceArray(global.fetchedColors);
-  setColorHeight(window.innerWidth <= 768 ? 100 : 200);
+  setColorHeight(window.innerWidth <= 768 ? 75 : 200);
   resizeListener();
   toggleListener();
   setBackground();
