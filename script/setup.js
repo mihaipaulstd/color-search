@@ -1,7 +1,8 @@
 function setup() {
   generateReferenceArray(global.fetchedColors);
-  setColorHeight(150);
+  setColorHeight(75 + Math.floor(window.innerWidth / 10));
   toggleListener();
+  resizeListener();
   setBackground();
   fadeIn(global.input, OPACITY_TRANSITION_INCREMENT * 2);
   fadeIn(global.colorContainer, OPACITY_TRANSITION_INCREMENT * 3);
@@ -11,10 +12,21 @@ function setup() {
   fadeInColorsListener();
 }
 
+function resizeListener() {
+  window.addEventListener("resize", e => {
+    global.ids.forEach(id => {
+      if (document.getElementById(id) != null) {
+        setColorHeight(
+          50 + window.innerWidth / 10,
+          document.getElementById(id)
+        );
+      }
+    });
+  });
+}
 function setColorHeight(height, element) {
-  if (!element) {
-    global.colorSize = height;
-  } else {
+  global.colorSize = height;
+  if (element) {
     global.colorContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(${height}px, 1fr))`;
     global.colorContainer.style.gridAutoRows = `${height}px`;
 
@@ -67,7 +79,7 @@ function check(key) {
     } else {
       global.referenceArray[index][1] = false;
       removeLastColor();
-      
+
       break;
     }
   }
