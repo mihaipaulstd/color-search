@@ -64,9 +64,9 @@ function check(key) {
     if (
       global.colorContainer.children[index].getBoundingClientRect().top <=
       (key == "listener"
-        ? window.innerHeight * 1.4
+        ? window.innerHeight * 2
         : global.toggled
-        ? window.innerHeight * 1.7
+        ? window.innerHeight * 2
         : window.innerHeight)
     ) {
       global.referenceArray[index][1] = true;
