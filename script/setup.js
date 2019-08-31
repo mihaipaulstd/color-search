@@ -1,7 +1,6 @@
 function setup() {
   generateReferenceArray(global.fetchedColors);
-  setColorHeight(window.innerWidth <= 768 ? 75 : 200);
-  resizeListener();
+  setColorHeight(150);
   toggleListener();
   setBackground();
   fadeIn(global.input, OPACITY_TRANSITION_INCREMENT * 2);
@@ -53,7 +52,7 @@ function check(key) {
     if (
       global.colorContainer.children[index].getBoundingClientRect().top <=
       (key == "listener"
-        ? window.innerHeight * 1.2
+        ? window.innerHeight * 1.4
         : global.toggled
         ? window.innerHeight * 1.7
         : window.innerHeight)
@@ -73,13 +72,6 @@ function check(key) {
     }
   }
   buttonEventInit();
-}
-
-function resizeListener() {
-  window.addEventListener("resize", e => {
-    generateReferenceArray(global.fetchedColors);
-    fadeInColors();
-  });
 }
 
 function removeLastColor() {
