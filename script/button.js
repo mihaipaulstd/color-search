@@ -13,8 +13,11 @@ function buttonEventInit() {
 }
 
 function clickCallback(e) {
-  global.body.style.transition = "background-color 1500ms ease-in-out 200ms";
-  global.body.style.backgroundColor = `#${e.target.id}`;
+  setBackground({
+    color: `#${e.target.id}`,
+    transition: "background-color 1500ms ease-in-out 200ms"
+  });
+
   if (!hasSelected()) {
     global.lastSelected = e.target;
     global.currentSelected = global.lastSelected;

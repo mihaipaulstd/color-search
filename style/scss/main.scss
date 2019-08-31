@@ -12,13 +12,13 @@
   user-select: none;
   transition: transform 500ms ease-in-out, background-color 1500ms ease-in-out,
     opacity 1000ms ease-in-out;
-  // overflow: hidden;
 }
 
 .container {
   height: 100vh;
   max-width: 100vw;
   margin: 0 auto;
+  position: relative;
 }
 
 .grid-row-2 {
@@ -82,6 +82,7 @@ input {
   overflow-x: hidden;
   overflow-y: scroll;
   padding: 0 2rem;
+  grid-gap: .15rem;
 }
 
 .color {

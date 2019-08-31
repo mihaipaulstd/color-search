@@ -10,9 +10,8 @@ global = {
   toggled: false,
   toggleInProgress: false,
   currentValue: new String(),
-  currentBackgroundColor: new String(),
-  currentArray: this.fetchedColors,
-  hasAppeared: new Array(),
+  currentBackgroundColor: null,
+  referenceArray: new Array(),
   fetchedColors: new Array(),
   rowHeight: 0,
   ids: new Array(),
@@ -23,8 +22,8 @@ global = {
 
 window.onload = init;
 
-function init() {
-  fetchColors()
-    .then(() => setup())
-    .then(() => run());
+async function init() {
+  await fetchColors();
+  await setup();
+  run();
 }
