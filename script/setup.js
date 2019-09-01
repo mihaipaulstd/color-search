@@ -2,7 +2,6 @@ function setup() {
   generateReferenceArray(global.fetchedColors);
   setColorHeight(75 + Math.floor(window.innerWidth / 10));
   toggleListener();
-  resizeListener();
   setBackground();
   fadeIn(global.input, OPACITY_TRANSITION_INCREMENT * 2);
   fadeIn(global.colorContainer, OPACITY_TRANSITION_INCREMENT * 3);
@@ -12,18 +11,6 @@ function setup() {
   fadeInColorsListener();
 }
 
-function resizeListener() {
-  window.addEventListener("resize", e => {
-    global.ids.forEach(id => {
-      if (document.getElementById(id) != null) {
-        setColorHeight(
-          50 + window.innerWidth / 10,
-          document.getElementById(id)
-        );
-      }
-    });
-  });
-}
 function setColorHeight(height, element) {
   global.colorSize = height;
   if (element) {
@@ -113,8 +100,9 @@ function addColor(options = {}) {
   }
   function createColorDiv(color) {
     const div = document.createElement("div");
-    div.classList.add("color");
     let id = color.hex.slice(1);
+    div.classList.add("color");
+    div.setAttribute("data-clipboard-text", `#${id}`);
     div.id = id;
     return div;
   }

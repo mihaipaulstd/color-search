@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Color Search</title>
     <link rel="stylesheet" href="style/css/main.css" />
-    
   </head>
   <body>
     <div class="container">
@@ -15,7 +14,7 @@
           <input
             type="text"
             id="search"
-            placeholder="Search colors, objects, ..."
+            placeholder="Search colors, objects ..."
             autocomplete="off"
             autofocus
             spellcheck="false"
@@ -24,7 +23,9 @@
             <i class="fas fa-angle-down fa-3x" id="toggle-button"></i>
           </div>
         </form>
-        <div class="color-container"></div>
+        <div class="color-container">
+          
+        </div>
       </div>
     </div>
   </body>
@@ -36,4 +37,5 @@
   <script src="script/submit.js"></script>
   <script src="script/button.js"></script>
   <script src="script/toggle.js"></script>
+  <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
 </html>

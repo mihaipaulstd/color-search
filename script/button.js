@@ -17,7 +17,7 @@ function clickCallback(e) {
     color: `#${e.target.id}`,
     transition: "background-color 1500ms ease-in-out 200ms"
   });
-
+  new ClipboardJS(e.target);
   if (!hasSelected()) {
     global.lastSelected = e.target;
     global.currentSelected = global.lastSelected;
@@ -29,6 +29,7 @@ function clickCallback(e) {
         document.getElementById(id).classList.remove("selected");
       }
     });
+    
     global.lastSelected = global.currentSelected;
     global.currentSelected = e.target;
     global.lastSelected.classList.remove("selected");

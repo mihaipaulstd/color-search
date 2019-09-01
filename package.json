@@ -16,5 +16,7 @@
     "url": "https://github.com/mihaipaulstd/color-search/issues"
   },
   "homepage": "https://github.com/mihaipaulstd/color-search#readme",
-  "dependencies": {}
+  "dependencies": {
+    "clipboard": "^2.0.4"
+  }
 }
